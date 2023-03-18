@@ -9,11 +9,11 @@ export default class ContactForm extends Component {
 
   handleSubmit = evt => {
     evt.preventDefault();
-    // const newContact = {
-    //   id: nanoid(),
-    //   name: this.state.name,
-    //   number: this.state.number,
-    // };
+    const newContact = {
+      id: nanoid(),
+      name: this.state.name,
+      number: this.state.number,
+    };
     this.props.addContact(this.state);
     this.setState({
       name: '',
