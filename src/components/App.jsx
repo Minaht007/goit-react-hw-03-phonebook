@@ -34,6 +34,12 @@ class App extends Component {
   };
 
   delContact = id => {
+    const deletedItem = this.state.contacts.filter(
+      contact => contact.id === id
+    );
+    const itemsArr = JSON.parse(localStorage.getItem('deletedContacts')) || [];
+    itemsArr.push(deletedItem);
+    localStorage.setItem('deletedContacts', JSON.stringify(itemsArr));
     this.setState(prevState => {
       return {
         contacts: prevState.contacts.filter(contact => contact.id !== id),
